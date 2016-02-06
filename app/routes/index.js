@@ -14,11 +14,23 @@ module.exports = function (app, passport) {
 	}
 
 	var clickHandler = new ClickHandler();
+	
+//////////////////////////////	
 
 	app.route('/')
 		.get(isLoggedIn, function (req, res) {
 			res.sendFile(path + '/public/index.html');
 		});
+		
+//////////////////////////////
+
+	app.route('/:excess')
+		.get(function(req,res){
+			res.render(path+'/public/helloWorld.ejs');
+		})
+
+
+///////////////////////////////
 
 	app.route('/login')
 		.get(function (req, res) {
